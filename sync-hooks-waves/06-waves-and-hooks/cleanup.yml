@@ -4,9 +4,10 @@ metadata:
   namespace: example06
   generateName: cleanup-after-sync-
   labels:
-    codefresh.io/cert: cleanup-job  
+    codefresh.io/cert: cleanup-job
     argocd.argoproj.io/hook: PostSync
     argocd.argoproj.io/sync-wave: "20"
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
 spec:
   template:
     spec:
@@ -17,4 +18,4 @@ spec:
           - "sleep"
           - "10"
       restartPolicy: Never
-  backoffLimit: 2    
+  backoffLimit: 2

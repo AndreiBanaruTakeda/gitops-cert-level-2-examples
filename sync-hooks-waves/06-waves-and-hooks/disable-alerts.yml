@@ -4,9 +4,10 @@ metadata:
   namespace: example06
   generateName: disable-alerts-
   labels:
-    codefresh.io/cert: disable-job  
+    codefresh.io/cert: disable-job
     argocd.argoproj.io/hook: PreSync
     argocd.argoproj.io/sync-wave: "20"
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
 spec:
   template:
     spec:
@@ -17,4 +18,4 @@ spec:
           - "sleep"
           - "10"
       restartPolicy: Never
-  backoffLimit: 2    
+  backoffLimit: 2
